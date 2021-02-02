@@ -25,12 +25,12 @@ describe(
              browser.pause(2000)
             
         })
-        it('click Quick view ', () => {
+        it('Click Quick View ', () => {
             $('//body[1]/div[1]/div[2]/div[1]/div[3]/div[2]/ul[1]/li[1]/div[1]/div[1]/div[1]/a[2]/span[1]').click()
             browser.pause(5000)
         })
         
-        it('click on size options ', () => {
+        it('click On Size Options ', () => {
             let frame = $("//iframe")
             browser.switchToFrame(frame)
             browser.pause(1000)
@@ -43,29 +43,29 @@ describe(
             browser.pause(5000)
         })
 
-        it('Click on Continue shopping button' , () => {            
+        it('Click on Continue Shopping Button' , () => {            
             $('span[title="Continue shopping"]').click()
             browser.pause(3000)
         })
 
-        it('card hover' , () => {            
+        it('Card Hover' , () => {            
             $('a[title="View my shopping cart"]').moveTo()
             browser.pause(1000)
         })
 
-        it('card checkout' , () => {            
+        it('Card Checkout' , () => {            
             $('#button_order_cart').click()
             browser.pause(3000)
         })
 
-        it('Process to checkout' , () => {            
+        it('Process to Checkout' , () => {            
             //$('//body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/p[2]/a[1]/span[1]').click()
             let procBtn = $('#columns').$('a[title="Proceed to checkout"]')
             procBtn.click()
             browser.pause(5000)
         })
 
-        it('create new account with email' , () => { 
+        it('Create New Account With Email' , () => { 
             const newemail = Math.random().toString(36).substring(2,7)  
             $('#email_create').addValue(newemail+'@fakedomain.com')
             browser.pause(2000)
@@ -74,7 +74,7 @@ describe(
             
         })
 
-        it('Fill in mandatory fields ' , () => {   
+        it('Fill in Mandatory Fields ' , () => {   
             
             $('div[class="radio"]').$('#id_gender1').click()
             $('#customer_firstname').addValue('Dmitry')
@@ -95,7 +95,7 @@ describe(
             browser.pause(5000)
 
         })
-        it('Process to checkout' , () => {            
+        it('Process to Checkout' , () => {            
             $('//body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/form[1]/p[1]/button[1]').click()
             browser.pause(5000)
         })
