@@ -19,6 +19,10 @@ exports.config = {
     specs: [
         './tests/**.js'
     ],
+    suites: {
+        'dev': ['./tests/basic.js'],
+        'envqa': ['./tests/incorrectEmail.js','./tests/incorrectTitle.js']
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -128,7 +132,20 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['dot'],
+    reporters: [
+        'dot',
+        ['json',{outputDir: './Results',
+        outputFileFormat: function(opts) { 
+            return `results-${opts.cid}.${opts.capabilities}.json`
+        }
+    }],
+    ['junit', {
+        outputDir: './',
+        outputFileFormat: function(options) { // optional
+            return `results-${options.cid}.${options.capabilities}.xml`
+        }
+    }]
+    ],
     port : 4444,
 
 
