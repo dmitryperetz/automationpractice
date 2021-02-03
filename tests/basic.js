@@ -1,5 +1,17 @@
+// const CartPage = require('../pageobjects/cart.page');
+
 describe(
     'Loading Web Site' , () => {
+        // it('Open cart page',() => {
+        //     CartPage.open("http://automationpractice.com/index.php?controller=order");
+            
+        //     // CartPage.proceedToCheckoutButton.click();
+
+        //     
+
+        //     
+        // })
+
         it('Load website',() => {
             let env = process.env.CONFIG
             var envVars = require('../envs/'+ env+ '.js');
@@ -13,6 +25,7 @@ describe(
         })
         it('Move to Women section', () => {          
             $('//a[@title="Women"]').moveTo()
+            expect(browser).toHaveTitle('Summer Dresses')
             browser.pause(2000)
         })
         it('Select Summer Dresses', () => {
@@ -96,21 +109,27 @@ describe(
 
         })
         it('Process to Checkout' , () => {            
-            $('//body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/form[1]/p[1]/button[1]').click()
+            //$('//body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/form[1]/p[1]/button[1]').click()
+            $('button[name="processAddress"]').click()
             browser.pause(5000)
         })
         it('Terms of Service and Process to Checkout ' , () => {            
             $('div[class="checker"]').$('#cgv').click()
             browser.pause(1000)
-            $('//body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/form[1]/p[1]/button[1]').click()
+            //$('//body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/form[1]/p[1]/button[1]').click()
+            $('button[name="processCarrier"]').click()
             browser.pause(5000)
 
         })
 
         it('Pay by Check' , () => {            
-            $('//body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[1]/p[1]/a[1]/span[1]').click()
+            //$('//body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[3]/div[2]/div[1]/p[1]/a[1]/span[1]').click()
+            $('#HOOK_PAYMENT').$('.cheque').click()
+            //$('a[class="cheque"]').click()
+            // $('a[title="Pay by check."]').click()
             browser.pause(2000)
-            $('//body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/form[1]/p[1]/button[1]/span[1]').click()
+            //$('//body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/form[1]/p[1]/button[1]/span[1]').click()
+            $('#center_column').$('button[type="submit"]').click()
             browser.pause(10000)
             
         })
